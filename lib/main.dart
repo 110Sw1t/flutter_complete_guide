@@ -12,7 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var questions = [
+  final _questions = [
     Question(
         questionStatement: "What is your favorite club?",
         answers: ["Ahly", "Zamalek", "Liverpool", "FC Barcelona"]),
@@ -25,13 +25,13 @@ class _MyAppState extends State<MyApp> {
         answers: ["Cat", "Dog"])
   ];
 
-  var currentQuestionIndex = 0;
+  var _currentQuestionIndex = 0;
 
   @override
   Widget build(BuildContext context) {
     void onPressedHandler() {
       setState(() {
-        currentQuestionIndex = (currentQuestionIndex + 1) % questions.length;
+        _currentQuestionIndex = (_currentQuestionIndex + 1) % _questions.length;
       });
     }
 
@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
       ),
       body: QuestionForm(
         action: onPressedHandler,
-        question: questions.elementAt(currentQuestionIndex),
+        question: _questions.elementAt(_currentQuestionIndex),
       ),
     ));
   }
