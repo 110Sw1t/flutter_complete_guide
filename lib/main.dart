@@ -57,7 +57,19 @@ class QuestionForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var elements = <Widget>[Text(question.questionStatement)];
+    var elements = <Widget>[
+      Container(
+          alignment: Alignment.center,
+          width: double.infinity,
+          margin: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(16),
+          color: const Color.fromARGB(255, 50, 150, 100),
+          child: Text(
+            question.questionStatement,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 28),
+          ))
+    ];
     elements.addAll(question.answers.map((e) => ElevatedButton(
           onPressed: action,
           child: Text(e),
